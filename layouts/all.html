@@ -1,0 +1,11 @@
+{{- /* Passthrough layout: emit the captured WordPress HTML verbatim,
+       rewriting the production domain to the current baseURL so preview
+       builds (github.io) are fully self-contained. A production build
+       (baseURL https://stefaniapana.design/) reproduces the original
+       markup byte-for-byte. */ -}}
+{{- $base := site.BaseURL -}}
+{{- $escBase := replace $base "/" "\\/" -}}
+{{- .RawContent
+      | replaceRE `https://stefaniapana\.design/` $base
+      | replaceRE `https:\\/\\/stefaniapana\.design\\/` $escBase
+      | safeHTML -}}

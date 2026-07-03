@@ -1,0 +1,24 @@
+baseURL: "https://stefaniapana.design/"
+title: "Ștefania Pană Design"
+locale: "ro-RO"
+
+security:
+  allowContent:
+    - text/html
+
+# The site is a 1:1 static capture of the previous WordPress site.
+# Each content file holds the full page HTML; layouts/all.html emits it
+# verbatim (with baseURL rewriting). Hugo must not generate anything else.
+disableKinds:
+  - taxonomy
+  - term
+  - rss
+  - sitemap
+  - robotsTXT
+  - section
+
+disableHugoGeneratorInject: true
+enableEmoji: false
+capitalizeListTitles: false
+
+taxonomies: {}
